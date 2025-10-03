@@ -1,4 +1,5 @@
 import { LucideCircleQuestionMark, Settings } from "lucide-react";
+import Link from "next/link";
 import {
   Sidebar,
   SidebarContent,
@@ -31,9 +32,12 @@ const items = [
 export default function AppSidebar() {
   return (
     <Sidebar>
+      <SidebarHeader className="text-xl">
+        <Link href="/">Memory Lane</Link>
+      </SidebarHeader>
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>Memory Lane</SidebarGroupLabel>
+          <SidebarGroupLabel>General</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {items.map((item) => (
@@ -50,6 +54,7 @@ export default function AppSidebar() {
           </SidebarGroupContent>
         </SidebarGroup>
       </SidebarContent>
+      <SidebarFooter className="h-12 bg-pink-500"></SidebarFooter>
     </Sidebar>
   );
 }

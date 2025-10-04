@@ -1,3 +1,8 @@
+import Playground from "./components/playground";
 export default function Home() {
-  return <div className="bg-amber-200"></div>;
+  return (
+    <div className="h-full w-full">
+      <Playground />
+    </div>
+  );
 }

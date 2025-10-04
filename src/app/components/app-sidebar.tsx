@@ -29,6 +29,8 @@ const items = [
     icon: Settings,
   },
 ];
+
+const dialog = [];
 export default function AppSidebar() {
   return (
     <Sidebar>

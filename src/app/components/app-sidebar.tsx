@@ -34,7 +34,7 @@ const items: MenuItem[] = [
     url: "#",
     icon: LucideCircleQuestionMark,
     description:
-      "It's a basic timeline visualiser for users to visualise timelines as nodes and think with a cleared visual picture. ",
+      "It's a basic timeline visualiser for users to visualise timelines as nodes and think about it with a clearer visual picture. ",
   },
   {
     title: "How to use?",
@@ -61,8 +61,8 @@ export default function AppSidebar() {
 
   return (
     <>
-      <Sidebar>
-        <SidebarHeader className="text-xl">
+      <Sidebar className="border-r-6 border-[#DDAE7E]">
+        <SidebarHeader className="text-xl bg-[#F2C57C]">
           <Link href="/">Memory Lane</Link>
         </SidebarHeader>
         <SidebarContent>
@@ -89,10 +89,10 @@ export default function AppSidebar() {
             <SidebarGroupContent>
               <SidebarMenu>
                 <SidebarMenuItem>
-                  <SidebarMenuButton className="bg-green-300 cursor-pointer hover:bg-green-400 hover:text-white">
+                  <SidebarMenuButton className="bg-[#7FB685] cursor-pointer hover:bg-green-400 hover:text-white">
                     Add
                   </SidebarMenuButton>
-                  <SidebarMenuButton className="bg-red-500 hover:bg-red-600 cursor-pointer text-black hover:text-white">
+                  <SidebarMenuButton className="bg-[#EF6F6C] hover:bg-red-600 cursor-pointer text-black hover:text-white">
                     Delete
                   </SidebarMenuButton>
                 </SidebarMenuItem>
@@ -100,7 +100,7 @@ export default function AppSidebar() {
             </SidebarGroupContent>
           </SidebarGroup>
         </SidebarContent>
-        <SidebarFooter className="h-12 bg-pink-500"></SidebarFooter>
+        <SidebarFooter className="h-12 bg-[#426A5A]"></SidebarFooter>
       </Sidebar>
 
       <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>

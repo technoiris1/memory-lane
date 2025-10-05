@@ -13,10 +13,17 @@ const initialNodes = [
     data: { label: "Node 2" },
   },
 ];
+const initialEdges = [
+  {
+    id: "e1",
+    source: "n1",
+    target: "n2",
+  },
+];
 export default function Playground() {
   return (
     <div className="h-full w-full">
-      <ReactFlow nodes={initialNodes}>
+      <ReactFlow nodes={initialNodes} edges={initialEdges} fitView>
         <Background />
         <Controls />
       </ReactFlow>

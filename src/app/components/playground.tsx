@@ -12,10 +12,16 @@ import {
   type OnNodesChange,
   type OnEdgesChange,
   type OnConnect,
+  type NodeTypes,
   MiniMap,
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 import { useState, useCallback } from "react";
+import { MemoryNode } from "./memorynode";
+interface MemoryNodeData extends Record<string, unknown> {
+  text?: string;
+  label?: string;
+}
 
 const initialNodes: Node[] = [
   {
@@ -33,12 +39,16 @@ const initialNodes: Node[] = [
   {
     id: "n3",
     position: { x: 400, y: 200 },
-    data: { label: "Node 3" },
-    type: "output",
+    data: { text: "Initial text", label: "Node 3" },
+    type: "memorynode",
   },
 ];
 
 const initialEdges: Edge[] = [];
+
+const nodeTypes: NodeTypes = {
+  memorynode: MemoryNode,
+};
 
 export default function Playground() {
   const [nodes, setNodes] = useState<Node[]>(initialNodes);
@@ -68,6 +78,7 @@ export default function Playground() {
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
         connectionMode={ConnectionMode.Loose}
+        nodeTypes={nodeTypes}
         fitView
         fitViewOptions={{
           padding: 0.2,

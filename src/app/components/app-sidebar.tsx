@@ -84,6 +84,21 @@ export default function AppSidebar() {
               </SidebarMenu>
             </SidebarGroupContent>
           </SidebarGroup>
+          <SidebarGroup>
+            <SidebarGroupLabel>Functions</SidebarGroupLabel>
+            <SidebarGroupContent>
+              <SidebarMenu>
+                <SidebarMenuItem>
+                  <SidebarMenuButton className="bg-green-300 cursor-pointer hover:bg-green-400 hover:text-white">
+                    Add
+                  </SidebarMenuButton>
+                  <SidebarMenuButton className="bg-red-500 hover:bg-red-600 cursor-pointer text-black hover:text-white">
+                    Delete
+                  </SidebarMenuButton>
+                </SidebarMenuItem>
+              </SidebarMenu>
+            </SidebarGroupContent>
+          </SidebarGroup>
         </SidebarContent>
         <SidebarFooter className="h-12 bg-pink-500"></SidebarFooter>
       </Sidebar>

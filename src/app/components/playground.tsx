@@ -18,12 +18,14 @@ import {
 import "@xyflow/react/dist/style.css";
 import { useState, useCallback } from "react";
 import { MemoryNode } from "./memorynode";
-interface MemoryNodeData extends Record<string, unknown> {
+type MemoryNodeData = {
   text?: string;
   label?: string;
-}
+};
+type MemoryNodeType = Node<MemoryNodeData, "memorynode">;
+type AppNode = MemoryNodeType | Node;
 
-const initialNodes: Node[] = [
+const initialNodes: AppNode[] = [
   {
     id: "n1",
     position: { x: 0, y: 0 },
@@ -51,7 +53,7 @@ const nodeTypes: NodeTypes = {
 };
 
 export default function Playground() {
-  const [nodes, setNodes] = useState<Node[]>(initialNodes);
+  const [nodes, setNodes] = useState<AppNode[]>(initialNodes);
   const [edges, setEdges] = useState<Edge[]>(initialEdges);
 
   const onConnect: OnConnect = useCallback((params) => {

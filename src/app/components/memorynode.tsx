@@ -1,37 +1,13 @@
-// memorynode.tsx
-import { useCallback, ChangeEvent, memo } from "react";
-import { Handle, Position, type NodeProps, useReactFlow } from "@xyflow/react";
+import { memo } from "react";
+import { Handle, Position, type NodeProps, type Node } from "@xyflow/react";
 
-interface MemoryNodeData {
+type MemoryNodeData = {
   text?: string;
   label?: string;
-}
-
+};
+type MemoryNodeType = Node<MemoryNodeData, "memorynode">;
 export const MemoryNode = memo(
-  ({ id, data, isConnectable }: NodeProps<MemoryNodeData>) => {
-    const { setNodes } = useReactFlow();
-
-    const handleChange = useCallback(
-      (evt: ChangeEvent<HTMLInputElement>) => {
-        const newValue = evt.target.value;
-        setNodes((nodes) =>
-          nodes.map((node) => {
-            if (node.id === id) {
-              return {
-                ...node,
-                data: {
-                  ...node.data,
-                  text: newValue,
-                },
-              };
-            }
-            return node;
-          }),
-        );
-      },
-      [id, setNodes],
-    );
-
+  ({ id, data, isConnectable }: NodeProps<MemoryNodeType>) => {
     return (
       <div className="memory-node">
         <Handle
@@ -40,17 +16,20 @@ export const MemoryNode = memo(
           isConnectable={isConnectable}
         />
 
-        <div>
-          <label htmlFor={`memory-input-${id}`}>Memory Node</label>
-          <input
-            id={`memory-input-${id}`}
-            name="text"
-            value={data?.text || ""}
-            onChange={handleChange}
-            className="nodrag"
-            placeholder="Enter memory..."
-            autoComplete="off"
-          />
+        <div className="memory-node-content">
+          <div className="memory-node-label">{data.label || "Memory Node"}</div>
+
+          <div className="memory-node-text">
+            <textarea
+              value={data.text || ""}
+              onChange={(e) => {
+                console.log("Text changed:", e.target.value);
+              }}
+              placeholder="Enter memory text..."
+              className="nodrag"
+              rows={3}
+            />
+          </div>
         </div>
 
         <Handle

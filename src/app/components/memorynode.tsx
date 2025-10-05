@@ -1,20 +1,22 @@
-import { Handle, Position, type NodeProps, type Node } from "@xyflow/react";
+import { Handle, Position } from "@xyflow/react";
 import { Input } from "@/components/ui/input";
 
 export const MemoryNode = () => {
   return (
     <div className="relative bg-white border-2 border-black rounded-xl shadow-md min-w-[200px] max-w-[240px]">
-      {/* Target Handle */}
       <Handle
         type="target"
         position={Position.Top}
+        id="memory-target"
         isConnectable={true}
-        className="!w-2.5 !h-2.5 !border-2 !border-black !bg-white"
+        className="!w-2.5 !h-2.5 !border-2 !border-black !bg-white !z-10"
+        style={{
+          top: -5,
+          background: "#fff",
+          border: "2px solid #000",
+        }}
       />
-
-      {/* Main Content Container */}
       <div className="p-2.5 space-y-2">
-        {/* Header Section */}
         <div className="space-y-1.5">
           <h4 className="text-xs font-medium text-gray-600 uppercase tracking-wide">
             Event
@@ -24,8 +26,6 @@ export const MemoryNode = () => {
             placeholder="Event name"
           />
         </div>
-
-        {/* Content Section */}
         <div className="space-y-1.5">
           <label className="text-xs font-medium text-gray-500 uppercase tracking-wide">
             Details
@@ -39,13 +39,17 @@ export const MemoryNode = () => {
           />
         </div>
       </div>
-
-      {/* Source Handle */}
       <Handle
         type="source"
         position={Position.Bottom}
+        id="memory-source"
         isConnectable={true}
-        className="!w-2.5 !h-2.5 !border-2 !border-black !bg-white"
+        className="!w-2.5 !h-2.5 !border-2 !border-black !bg-white !z-10"
+        style={{
+          bottom: -5,
+          background: "#fff",
+          border: "2px solid #000",
+        }}
       />
     </div>
   );
